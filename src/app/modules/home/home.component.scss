@@ -1,0 +1,32 @@
+.container {
+    .body {
+        display: flex;
+        padding: 70px;
+        height: 100%;
+        .header{
+            font-weight: bold;
+            font-size: 45px;
+            color: black;
+            padding-bottom: 40px;
+        }
+        .text{
+            padding-right: 150px;
+            font-size: 25px;
+            padding-bottom: 60px;
+        } 
+        .appLink{
+            text-align: left;
+            img{
+                padding: 5px;
+            }
+        }  
+        .icons{
+            margin-top: 75px;
+            span{
+                padding: 10px;
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,26 @@
+.container {
+    .nav {
+        display: flex;
+        padding: 25px;
+        background-color: #4b4b4b;
+        color: white;
+
+        .logo {
+            flex: 1;
+
+        }
+
+        .navItem {
+            display: flex;
+
+            a{
+                padding: 0px 5px;
+                text-decoration: none;
+                color: white;
+                cursor: pointer;
+            }
+
+        }
+    }
+
+}
