@@ -8,8 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './modules/nav/nav.component';
 import { MatIconModule } from '@angular/material/icon';
-import { GenericService } from './services/generic.service';
-import { BaseService } from './services/base.service';
 import { SportComponent } from './modules/sport/sport.component';
 import { TalkService } from './services/talk.service';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
@@ -31,7 +29,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [
-    BaseService, GenericService,TalkService
+    TalkService
   ],
   bootstrap: [AppComponent]
 })

@@ -98,6 +98,14 @@
         }
         .detail{
             margin-top: 50px;
+            button{
+                background-color: #4b4b4b;
+                height: 40px;
+                color: white;
+                cursor: pointer;
+                border: none;
+                border-radius: 5px;
+            }
             .name{
                 padding: 5px;
                 font-size: 35px;
