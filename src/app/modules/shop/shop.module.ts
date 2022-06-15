@@ -1,28 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
-import { HomeComponent } from './shop.component';
-import { GoogleMapsModule } from '@angular/google-maps'
+import { ShopComponent } from './shop.component';
+
 
 
 
 
 const routes: Routes = [
-	{ path: '', component: HomeComponent },
+	{ path: '', component: ShopComponent },
 ];
 
 @NgModule({
 	declarations: [
-		HomeComponent
+		ShopComponent
 	],
 	imports: [
 		RouterModule.forChild(routes),
 		CommonModule,
-		ReactiveFormsModule,
-		FormsModule,
-		GoogleMapsModule,
 	],
 })
-export class HomeModule { }
+export class ShopModule { }

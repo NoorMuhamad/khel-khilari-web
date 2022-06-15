@@ -38,11 +38,11 @@ export class TalkService {
     async createInbox(session: Talk.Session) {
         this.user=localStorage.getItem('user')
         this.user =JSON.parse(this.user)
+        console.log(this.user)
         const otherApplicationUser = {
             id: this.user._id,
-            username: this.user.displayName,
+            username: this.user.firstName,
             email: this.user.email,
-            photoUrl: this.user.photoUrl,
             welcomeMessage: 'Hey, how can I help?',
             role: 'default'
         };

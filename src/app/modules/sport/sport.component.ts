@@ -21,19 +21,10 @@ export class SportComponent implements OnInit {
   private session!: Talk.Session;
 
   @ViewChild('sp') sp!: ElementRef;
-  @ViewChild('map') mapElement: any;
-  map!: google.maps.Map;
 
   constructor(private talkService: TalkService) { }
   ngOnInit(): void {
     this.createInbox();
-    const mapProperties = {
-      center: new google.maps.LatLng(35.2271, -80.8431),
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapProperties);
-
   }
   movies = [
     'Episode I - The Phantom Menace',

@@ -5,6 +5,8 @@ const routes: Routes = [
   {path: 'home',loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)},
   {path: 'sport',loadChildren: () => import('./modules/sport/sport.module').then(m => m.SportModule)},
   {path: 'login',loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule)},
+  {path: 'shops',loadChildren: () => import('./modules/shop/shop.module').then(m => m.ShopModule)},
+
 
 ];
 

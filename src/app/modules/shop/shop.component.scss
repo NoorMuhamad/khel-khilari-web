@@ -1,29 +1,33 @@
 .container {
-    .body {
-        display: flex;
-        padding: 70px;
-        height: 100%;
-        .header{
+    display: flex;
+
+    .chat {
+        width: 750px;
+        height: 750px;
+        border-right: 5px solid black;
+    }
+
+    .shops {
+        padding: 10px;
+        margin-left: 50px;
+        .header {
             font-weight: bold;
             font-size: 45px;
             color: black;
+            text-align: center;
             padding-bottom: 40px;
         }
-        .text{
-            padding-right: 150px;
-            font-size: 25px;
-            padding-bottom: 60px;
-        } 
-        .appLink{
-            text-align: left;
-            img{
-                padding: 5px;
-            }
-        }  
-        .icons{
-            margin-top: 75px;
-            span{
-                padding: 10px;
+        .details{
+            font-size: bold;
+            font-size: 30px;
+            text-align: center;
+            color: black;
+        }
+        .shop-Cards{
+            padding-top: 20px;
+            display: flex;
+            .card{
+                
             }
         }
 

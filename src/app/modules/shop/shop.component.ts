@@ -1,39 +1,29 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, Inject, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { Component, Inject, OnInit , ViewChild , ElementRef } from '@angular/core';
+import { TalkService } from '../../services/talk.service';
+import Talk from 'talkjs';
 
 
 
 @Component({
-  selector: 'home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'shop',
+  templateUrl: './shop.component.html',
+  styleUrls: ['./shop.component.scss'],
 })
 
-export class HomeComponent implements OnInit {
-
-
-  constructor(private http: HttpClient ) {
-  }
-
-  private async request(method: string, url: string, data?: any, responseType?: any) {
-
-    const result = this.http.request(method, url, {
-      body: data,
-      responseType: responseType || 'json',
-      observe: 'body',
-    });
-    return new Promise<any>((resolve, reject) => {
-      result.subscribe(resolve as any, reject as any);
-    });
-  }
+export class ShopComponent implements OnInit {
+  
+  private inbox!: Talk.Inbox;
+  private session!: Talk.Session;
+  @ViewChild('sp') sp!: ElementRef;
 
   ngOnInit(): void {
-    
-    this.http.get(`${environment.apiUrl}/user/allUsers`).subscribe((res)=>{
-      console.log(res)
-    })
-    console.log(this.request('get', `${environment.apiUrl}/user/allUsers`));
-    
+    this.createInbox();
+  }
+  constructor(private talkService: TalkService) { }
+  private async createInbox() {
+    const session = await this.talkService.createCurrentSession();
+    this.inbox = await this.talkService.createInbox(session);
+    console.log(this.inbox)
+    this.inbox.mount(this.sp.nativeElement);
   }
 }

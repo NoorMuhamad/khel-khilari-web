@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { MatButtonToggleModule } from "@angular/material/button-toggle"
 
 
 
@@ -21,6 +22,7 @@ const routes: Routes = [
         CommonModule,   
         FormsModule,
         ReactiveFormsModule,
+        MatButtonToggleModule,
         NgCircleProgressModule.forRoot({
             // set defaults here
             radius: 100,
