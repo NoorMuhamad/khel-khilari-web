@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   
 
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
+  constructor(private formBuilder: FormBuilder, private http: HttpClient ,private router: Router) { }
 
   
 
@@ -104,14 +104,16 @@ export class LoginComponent implements OnInit {
     }
     console.log(this.registerForm.value);
     
-    // await this.http.post(`${environment.apiUrl}/user/create`, this.registerForm.value).subscribe((data:any) => {
-    //   if (data.result.access_token && data.user) {
-    //     localStorage.setItem("token", data.result.access_token)
-    //     localStorage.setItem("user",JSON.stringify(data.user))
-    //     this.user = data.user
-    //     this.loginDone = true        
-    //   }
-    // })
+    await this.http.post(`${environment.apiUrl}/user/create`, this.registerForm.value).subscribe((data:any) => {
+      console.log(data);
+      
+      if (data.result.access_token && data.user) {
+        localStorage.setItem("token", data.result.access_token)
+        localStorage.setItem("user",JSON.stringify(data.user))
+        this.user = data.user
+        this.loginDone = true        
+      }
+    })
   }
 
   async onSubmitLogin() {
@@ -134,6 +136,12 @@ export class LoginComponent implements OnInit {
   onSportSubmit(){
     this.submitted = true;
     console.log(this.registerSportForm.value)
+    this.http.post(`${environment.apiUrl}/user/create`, this.registerSportForm.value).subscribe((data:any) => {
+      console.log(data);
+      if(data.user){
+        this.router.navigate(['/shops']);
+      }
+    })
   }
   
 }

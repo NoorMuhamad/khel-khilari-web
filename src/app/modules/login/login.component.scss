@@ -1,6 +1,11 @@
 .choseRegister{
     text-align: center;
     font-size: 35px;
+    padding-top: 10px;
+    mat-button-toggle{
+        background-color: #4b4b4b;
+        color: #ECECEC;
+    }
 }
 .container {
     display: flex;
