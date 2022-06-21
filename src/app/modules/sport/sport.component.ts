@@ -1,16 +1,20 @@
-import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { TalkService } from '../../services/talk.service';
-import Talk from 'talkjs';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { } from 'googlemaps';
-
-
+import Talk from 'talkjs';
+import { TalkService } from '../../services/talk.service';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { TeamDialog } from '../teamDialogue/teamDialog.component';
+export interface DialogData {
+  animal: 'panda' | 'unicorn' | 'lion';
+}
 
 @Component({
   selector: 'sport',
   templateUrl: './sport.component.html',
   styleUrls: ['./sport.component.scss']
 })
+
 
 export class SportComponent implements OnInit {
 
@@ -22,7 +26,7 @@ export class SportComponent implements OnInit {
 
   @ViewChild('sp') sp!: ElementRef;
 
-  constructor(private talkService: TalkService) { }
+  constructor(private talkService: TalkService, public dialog: MatDialog) { }
   ngOnInit(): void {
     this.createInbox();
   }
@@ -51,6 +55,14 @@ export class SportComponent implements OnInit {
     this.inbox = await this.talkService.createInbox(session);
     console.log(this.inbox)
     this.inbox.mount(this.sp.nativeElement);
+  }
+
+  createTeam(){
+    console.log("team")
+    this.dialog.open(TeamDialog, {
+      height: '400px',
+      width: '600px',
+    });
   }
 
 }

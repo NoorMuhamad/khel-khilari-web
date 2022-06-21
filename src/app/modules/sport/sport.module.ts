@@ -4,7 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { SportComponent } from './sport.component';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
+import { MatDialogModule } from '@angular/material/dialog';
 const routes: Routes = [
 	{ path: '', component: SportComponent },
 ];
@@ -15,7 +17,8 @@ const routes: Routes = [
 		CommonModule,
 		ReactiveFormsModule,
 		FormsModule,
-		DragDropModule
+		DragDropModule,
+		MatDialogModule
 	],
 })
 export class SportModule { }
