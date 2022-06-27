@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!submitted">
     <div class="body">
         <div class="header">
             <div class="title">
@@ -95,13 +95,13 @@
                 <div>
                     <h3>{{gameName}} Players</h3>
                     <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-                        <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}</div>
+                        <div class="example-box" *ngFor="let player of players" cdkDrag>{{player}}</div>
                     </div>
                 </div>
                 <div>
-                    <h3>{{gameName}} Team Players</h3>
-                    <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-                        <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}</div>
+                    <h3>{{gameName}} Teams</h3>
+                    <div cdkDropList class="example-list" (cdkDropListDropped)="dropTeam($event)">
+                        <div class="example-box" *ngFor="let team of teams" cdkDrag>{{team}}</div>
                     </div>
                 </div>
                 <div #sp class="chat">Loading...</div>
@@ -135,4 +135,21 @@
             </div>
         </div>
     </div>
+</div>
+<div class="register-form" *ngIf="submitted">
+    <form [formGroup]="registerTeamForm" (ngSubmit)="onTeamSubmit()">
+        <div class="form-group">
+            <label>TeamName</label>
+            <input type="text" formControlName="teamName" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Owner Name</label>
+            <input type="text" formControlName="ownerName" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Coach Name</label>
+            <input type="text" formControlName="coachName" class="form-control" />
+        </div>
+        <button class="btn btn-primary mr-1">Register</button>
+    </form>
 </div>

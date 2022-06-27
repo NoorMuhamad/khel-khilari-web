@@ -40,9 +40,9 @@ export class TalkService {
         this.user =JSON.parse(this.user)
         console.log(this.user)
         const otherApplicationUser = {
-            id: this.user._id,
-            username: this.user.firstName,
-            email: this.user.email,
+            id: 1,
+            username: 'test',
+            email: "noor@gmail.com",
             welcomeMessage: 'Hey, how can I help?',
             role: 'default'
         };

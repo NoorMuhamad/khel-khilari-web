@@ -222,3 +222,35 @@
     }
 
 }
+
+.register-form{
+    text-align: center;
+    margin-top: 20%;
+    .form-group {
+
+        input,
+        select {
+            width: 50%;
+            height: 35px;
+            background-color: #ECECEC;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        label {
+            font-size: 30px;
+        }
+    }
+    button {
+        width: 50%;
+        height: 35px;
+        background-color: black;
+        border: none;
+        border-radius: 5px;
+        color: #ECECEC;
+        font-size: 20px;
+        cursor: pointer;
+    }
+}

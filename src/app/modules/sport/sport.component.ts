@@ -5,6 +5,7 @@ import Talk from 'talkjs';
 import { TalkService } from '../../services/talk.service';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { TeamDialog } from '../teamDialogue/teamDialog.component';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export interface DialogData {
   animal: 'panda' | 'unicorn' | 'lion';
 }
@@ -23,28 +24,50 @@ export class SportComponent implements OnInit {
   public gameName: any
   private inbox!: Talk.Inbox;
   private session!: Talk.Session;
+  public registerTeamForm: FormGroup;
+  public submitted = false;
 
   @ViewChild('sp') sp!: ElementRef;
 
-  constructor(private talkService: TalkService, public dialog: MatDialog) { }
+  constructor(private talkService: TalkService, public dialog: MatDialog , private formBuilder: FormBuilder) { }
   ngOnInit(): void {
     this.createInbox();
+    this.registerTeamForm = this.formBuilder.group({
+      teamName: ['', Validators.required],
+      ownerName: ['', Validators.required],
+      coachName: ['', Validators.required],
+    });
   }
-  movies = [
-    'Episode I - The Phantom Menace',
-    'Episode II - Attack of the Clones',
-    'Episode III - Revenge of the Sith',
-    'Episode IV - A New Hope',
-    'Episode V - The Empire Strikes Back',
-    'Episode VI - Return of the Jedi',
-    'Episode VII - The Force Awakens',
-    'Episode VIII - The Last Jedi',
-    'Episode IX – The Rise of Skywalker',
+
+
+  
+
+  players = [
+    'Player - Wade',
+    'Player - smith',
+    'Player - Ali',
+    'Player - Faisal',
+    'Player - Nabeel',
+    'Player - Arslan',
+    'Player - Rasheed',
+    'Player - Nasir',
+    'Player – Jorge',
   ];
 
   drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.players, event.previousIndex, event.currentIndex);
   }
+
+  teams = [
+    'Team - karachi Kings',
+    'Team - Lahore Qalanders',
+    'Team - Multan sultan',
+  ];
+
+  dropTeam(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.teams, event.previousIndex, event.currentIndex);
+  }
+
   game(game: any) {
     this.checkGame = true
     console.log(game)
@@ -58,11 +81,15 @@ export class SportComponent implements OnInit {
   }
 
   createTeam(){
-    console.log("team")
-    this.dialog.open(TeamDialog, {
-      height: '400px',
-      width: '600px',
-    });
+    this.submitted = true;
+
+  }
+
+  onTeamSubmit(){
+    console.log(this.registerTeamForm.value)
+    let data = {...this.registerTeamForm.value, userId:'12345'}
+    console.log(data)
+    this.submitted = false;
   }
 
 }
