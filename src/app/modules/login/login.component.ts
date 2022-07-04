@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   public submitted = false;
   public loginDone: Boolean = false;
   public user: any;
+  public test:number = 80
   checked: boolean;
   Data: Array<any> = [
     { name: 'BasketBall', value: 'basketball' },
@@ -44,6 +45,9 @@ export class LoginComponent implements OnInit {
       let data:any = localStorage.getItem("user")
       this.user = JSON.parse(data)
       this.loginDone = true
+      this.http.get(`http://localhost:3000/user/find/${this.user._id}`).subscribe((data: any) => {
+        this.user = data
+      })
     }
     this.registerForm = this.formBuilder.group({
       title: ['', Validators.required],
@@ -102,10 +106,8 @@ export class LoginComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-    console.log(this.registerForm.value);
     
     await this.http.post(`${environment.apiUrl}/user/create`, this.registerForm.value).subscribe((data:any) => {
-      console.log(data);
       
       if (data.result.access_token && data.user) {
         localStorage.setItem("token", data.result.access_token)

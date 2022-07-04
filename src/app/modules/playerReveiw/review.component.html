@@ -1,0 +1,160 @@
+<div class="example-header">
+
+    <div class="example-container mat-elevation-z8">
+
+        <mat-table [dataSource]="dataSource" matSort>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="football">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Football </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <ng-container *ngFor="let rating of row.football; index as i">
+                        <div class="rating">
+                            <div>
+                                <ngx-material-rating [(ngModel)]="rating.value "
+                                    [max]="rating.max" (click)="ratingData({value:rating.value,name:rating.name,id:row.id})">
+                                </ngx-material-rating>
+                            </div>
+                        </div>
+                    </ng-container>
+                </mat-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="badminton">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Badminton </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <ng-container *ngFor="let rating of badminton; index as i">
+                        <div class="rating">
+                            <div>
+                                <ngx-material-rating [(ngModel)]="rating.value"
+                                    [max]="rating.max" (click)="ratingData({value:rating.value,name:rating.name,id:row.id})">
+                                </ngx-material-rating>
+                            </div>
+                        </div>
+                    </ng-container>
+                </mat-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="snooker">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Snooker </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <ng-container *ngFor="let rating of snooker; index as i">
+                        <div class="rating">
+                            <div>
+                                <ngx-material-rating [(ngModel)]="rating.value"
+                                    [max]="rating.max" (click)="ratingData({value:rating.value,name:rating.name,id:row.id})">
+                                </ngx-material-rating>
+                            </div>
+                        </div>
+                    </ng-container>
+                </mat-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="cricket">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Cricket </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <ng-container *ngFor="let rating of cricket; index as i">
+                        <div class="rating">
+                            <div>
+                                <ngx-material-rating [(ngModel)]="rating.value"
+                                    [max]="rating.max" (click)="ratingData({value:rating.value,name:rating.name,id:row.id})">
+                                </ngx-material-rating>
+                            </div>
+                        </div>
+                    </ng-container>
+                </mat-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="basketBall">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> BasketBall </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <ng-container *ngFor="let rating of basketBall; index as i">
+                        <div class="rating">
+                            <div>
+                                <ngx-material-rating [(ngModel)]="rating.value"
+                                    [max]="rating.max" (click)="ratingData({value:rating.value,name:rating.name,id:row.id})">
+                                </ngx-material-rating>
+                            </div>
+                        </div>
+                    </ng-container>
+                </mat-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="foosball">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Foosball </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <ng-container *ngFor="let rating of foosball; index as i">
+                        <div class="rating">
+                            <div>
+                                <ngx-material-rating [(ngModel)]="rating.value"
+                                    [max]="rating.max" (click)="ratingData({value:rating.value,name:rating.name,id:row.id})">
+                                </ngx-material-rating>
+                            </div>
+                        </div>
+                    </ng-container>
+                </mat-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="tennis">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Tennis </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <ng-container *ngFor="let rating of tennis; index as i">
+                        <div class="rating">
+                            <div>
+                                <ngx-material-rating [(ngModel)]="rating.value"
+                                    [max]="rating.max" (click)="ratingData({value:rating.value,name:rating.name,id:row.id})">
+                                </ngx-material-rating>
+                            </div>
+                        </div>
+                    </ng-container>
+                </mat-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="golf">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Golf </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <ng-container *ngFor="let rating of golf; index as i">
+                        <div class="rating">
+                            <div>
+                                <ngx-material-rating [(ngModel)]="rating.value"
+                                    [max]="rating.max" (click)="ratingData({value:rating.value,name:rating.name,id:row.id})">
+                                </ngx-material-rating>
+                            </div>
+                        </div>
+                    </ng-container>
+                </mat-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="tableTennis">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> TableTennis </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <ng-container *ngFor="let rating of tableTennis; index as i">
+                        <div class="rating">
+                            <div>
+                                <ngx-material-rating [(ngModel)]="rating.value"
+                                    [max]="rating.max" (click)="ratingData({value:rating.value,name:rating.name,id:row.id})">
+                                </ngx-material-rating>
+                            </div>
+                        </div>
+                    </ng-container>
+                </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;">
+            </mat-row>
+        </mat-table>
+    </div>

@@ -6,7 +6,8 @@ const routes: Routes = [
   {path: 'sport',loadChildren: () => import('./modules/sport/sport.module').then(m => m.SportModule)},
   {path: 'login',loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule)},
   {path: 'shops',loadChildren: () => import('./modules/shop/shop.module').then(m => m.ShopModule)},
-
+  {path: 'review',loadChildren: () => import('./modules/playerReveiw/review.module').then(m => m.ReviewModule)},
+  {path: 'venue',loadChildren: () => import('./modules/venue/venue.module').then(m => m.VenueModule)},
 
 ];
 
